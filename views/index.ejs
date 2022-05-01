@@ -1,0 +1,22 @@
+<h1>Bravo, tu as réussi</h1>
+
+
+
+
+<form action="createUsers" method="POST">
+    <input type="text" name="username" placeholder="Nom d'utilisateur">
+    <br>
+    <input type="text" name="password" placeholder="Mot de passe">
+    <br>
+    <select name="age" id="">
+        <option value="30">30</option>
+        
+    </select>
+
+<br>
+    <input type="submit" value="Créer un nouvel utilisateur">
+</form>
+
+<div class="listofusers">
+    Password is : <%= password %>
+</div>

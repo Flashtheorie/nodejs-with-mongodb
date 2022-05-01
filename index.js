@@ -45,13 +45,13 @@ app.get('/users', function(req, res) {
 app.post('/createUsers', function(req, res) {
     
     let username = req.body.username;
-    let password = req.body.password;
+    let email = req.body.email;
     let age = req.body.age;
     let avatar = 'https://ui-avatars.com/api/?name=' + username
     db.collection("users").insertOne({
         
         username: username,
-        password: password,
+        email: email,
         age: age,
         avatar: avatar
     }, function(err) {

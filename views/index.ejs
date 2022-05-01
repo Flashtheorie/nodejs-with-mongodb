@@ -7,18 +7,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Accueil</title>
 </head>
-<body>
-    <h1 class="pt-10 text-center text-3xl font-bold underline">NodeJS with MongoDB</h1>
+<body class="bg-slate-800">
+    <h1 class="pt-10 text-center text-3xl font-bold underline text-gray-300">NodeJS with MongoDB</h1>
 
 
 <div align="center">
 
 <form action="createUsers" method="POST" class="p-5 w-2/6">
-    <input type="text" name="username" placeholder="Nom d'utilisateur" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline m-5">
+    <input type="text" name="username" placeholder="Nom d'utilisateur" class="placeholder:text-gray-500 bg-gray-300 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline m-5">
     <br>
-    <input type="text" name="password" placeholder="Mot de passe" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline m-5">
+    <input type="text" name="email" placeholder="Email" class="placeholder:text-gray-500 bg-gray-300 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline m-5">
     <br>
-    <select name="age" id="" class="m-5 form-select appearance-none
+    <select name="age" id="" class=" bg-gray-300 m-5 form-select appearance-none
     block
     w-full
     px-3
@@ -26,7 +26,7 @@
     text-base
     font-normal
     text-gray-700
-    bg-white bg-clip-padding bg-no-repeat
+  bg-clip-padding bg-no-repeat
     border border-solid border-gray-300
     rounded
     transition
@@ -42,7 +42,7 @@
     </select>
 
 <br>
-    <input type="submit" value="Créer un nouvel utilisateur" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+    <input type="submit" value="Créer un nouvel utilisateur" class="cursor-pointer bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
 </form>
 </div>
 <div class="flex justify-center">
@@ -51,9 +51,10 @@
         <li class="py-4 flex">
             <img class="h-10 w-10 rounded-full" src="<%= user.avatar %>>" alt="">
             <div class="ml-3">
-              <p class="text-sm font-medium text-gray-900"><%= user.username %></p>
-              <p class="text-sm text-gray-500"><%= user.age %> ans</p>
-              <a href class="items-right text-sm text-red-600" href="delete/<%= user.username %>">Supprimer ce membre</a>
+              <p class="text-sm font-medium text-gray-500"><%= user.username %></p>
+              <p class="text-sm text-gray-300"><%= user.age %> ans</p>
+              <p class="text-sm text-gray-300"><%= user.email %></p>
+              <a  class="items-right text-sm text-red-600" href="delete/<%= user.username %>">Supprimer ce membre</a>
             </div>
           </li>
         

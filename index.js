@@ -19,28 +19,41 @@ mongoose.connect(config.DB_URI, function(err, db){
 
 app.get('/', function(req, res) {
     //let listofusers = document.querySelector('.listofusers');
-
-    db.collection("users").findOne({pseudo : 'Antoine'}, function(err, user){
+    
+    db.collection("users").find({}).toArray(function(err, users,){
         if (err) throw err;
-        console.log(user.password)
-        res.render('index', { root: __dirname, password: user.password });
+        
+           res.render('index', { root: __dirname, users: users });
+        
+        
+        
     })
     
 });
 
+app.get('/delete/:id', function(req, res){
+    db.collection("users").deleteOne({ username: req.params.id}, function(err, users){
+        if (err) throw err;
+        res.redirect('/');
+
+    })
+})
 
 app.get('/users', function(req, res) {
     res.json({"success": true})
 })
 app.post('/createUsers', function(req, res) {
     
-    let username = req.query.username;
-    let password = req.query.password;
-    let age = req.query.age;
+    let username = req.body.username;
+    let password = req.body.password;
+    let age = req.body.age;
+    let avatar = 'https://ui-avatars.com/api/?name=' + username
     db.collection("users").insertOne({
+        
         username: username,
         password: password,
-        age: age
+        age: age,
+        avatar: avatar
     }, function(err) {
         if (err) throw err;
         console.log("User created successfully : " + username);

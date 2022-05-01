@@ -1,22 +1,66 @@
-<h1>Bravo, tu as réussi</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Accueil</title>
+</head>
+<body>
+    <h1 class="pt-10 text-center text-3xl font-bold underline">NodeJS with MongoDB</h1>
 
 
+<div align="center">
 
-
-<form action="createUsers" method="POST">
-    <input type="text" name="username" placeholder="Nom d'utilisateur">
+<form action="createUsers" method="POST" class="p-5 w-2/6">
+    <input type="text" name="username" placeholder="Nom d'utilisateur" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline m-5">
     <br>
-    <input type="text" name="password" placeholder="Mot de passe">
+    <input type="text" name="password" placeholder="Mot de passe" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline m-5">
     <br>
-    <select name="age" id="">
+    <select name="age" id="" class="m-5 form-select appearance-none
+    block
+    w-full
+    px-3
+    py-1.5
+    text-base
+    font-normal
+    text-gray-700
+    bg-white bg-clip-padding bg-no-repeat
+    border border-solid border-gray-300
+    rounded
+    transition
+    ease-in-out
+    
+    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
         <option value="30">30</option>
-        
+        <option value="31">31</option>
     </select>
 
 <br>
-    <input type="submit" value="Créer un nouvel utilisateur">
+    <input type="submit" value="Créer un nouvel utilisateur" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
 </form>
-
-<div class="listofusers">
-    Password is : <%= password %>
 </div>
+<div class="flex justify-center">
+<ul role="list" class="divide-y divide-gray-200">
+    <% users.forEach((user) => { %> 
+        <li class="py-4 flex">
+            <img class="h-10 w-10 rounded-full" src="<%= user.avatar %>>" alt="">
+            <div class="ml-3">
+              <p class="text-sm font-medium text-gray-900"><%= user.username %></p>
+              <p class="text-sm text-gray-500"><%= user.age %> ans</p>
+              <a href class="items-right text-sm text-red-600" href="delete/<%= user.username %>">Supprimer ce membre</a>
+            </div>
+          </li>
+        
+      <%}); %>
+</ul>
+
+
+</div></div>
+</body>
+</html>

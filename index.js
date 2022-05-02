@@ -16,7 +16,12 @@ mongoose.connect(config.DB_URI, function(err, db){
     if (err) throw err;
     console.log('Connected to database');
 });
-
+app.get('/listusers', function(req, res){
+    db.collection('users').find({}, function(err, user){
+        if (err) throw err;
+        return user.tojson();
+    })
+})
 app.get('/', function(req, res) {
     //let listofusers = document.querySelector('.listofusers');
     

@@ -1,6 +1,6 @@
 module.exports = {
 <<<<<<< HEAD
-    DB_URI : 'mongodb+srv://flashtheorie:Ralamoin974@cluster0.cgjma.mongodb.net/website'
+    DB_URI : ''
 } 
 =======
     DB_URI : 'url' 
